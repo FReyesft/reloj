@@ -1,14 +1,16 @@
 let hoursClock = document.getElementById('date-hours')
 let minutesClock = document.getElementById('date-minutes')
 let secondsClock = document.getElementById('date-seconds')
-
+let dateDay = document.getElementById('date')
+const timesClock = document.querySelectorAll('.times-clock')
 
 function UpdateTimeForSecond() {
 	setInterval(() => {
 		const date = new Date
-		let hours = date.getHours()
+		let hours = date.getHours();
 		let minutes = date.getMinutes();
 		let seconds = date.getSeconds();
+		dateDay.textContent = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
 		console.log(seconds)
 		if (seconds < 10) {
 			secondsClock.textContent = '0' + seconds
@@ -25,7 +27,11 @@ function UpdateTimeForSecond() {
 		} else {
 			hoursClock.textContent = hours
 		}
-	}, 100)
+		timesClock.forEach((item) => {
+			item.classList.toggle('active');
+		});
+
+	}, 1000);
 }
 
 UpdateTimeForSecond();
