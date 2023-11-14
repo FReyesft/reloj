@@ -25,15 +25,7 @@ function UpdateTimeForSecond() {
 		} else {
 			hoursClock.textContent = hours
 		}
-
-
-
-
-
-
-
-
-	}, 1000)
+	}, 100)
 }
 
 UpdateTimeForSecond();
